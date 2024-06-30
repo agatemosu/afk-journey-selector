@@ -1,0 +1,174 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	font-size: 14px;
+	font-family: sans-serif;
+}
+
+main {
+	display: flex;
+}
+
+button {
+	cursor: pointer;
+	border: none;
+	background-color: #0369a1;
+	padding: 15px;
+	color: white;
+}
+
+#blackout {
+	position: fixed;
+	opacity: 0;
+	z-index: 1;
+	transition: opacity 300ms;
+	background-color: #000;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+
+	&[data-visibility="visible"] {
+		opacity: 0.5;
+		pointer-events: all;
+	}
+}
+
+.source {
+	background-color: #334155;
+	padding: 15px;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+}
+
+/* Canvas */
+
+.chars-container {
+	width: 45vh;
+}
+
+#chars {
+	display: grid;
+	background-color: black;
+	position: fixed;
+	top: 0;
+	grid-template-areas:
+		"first second"
+		"third second"
+		"third fourth"
+		"fifth fourth";
+	place-items: center;
+	padding: 20px 10px;
+	aspect-ratio: 9 / 20;
+	height: 100vh;
+}
+
+.char {
+	position: relative;
+	transition: background-color 200ms;
+	cursor: pointer;
+	border: 3px solid #cbd5e1;
+	border-radius: 40px 40px 0 0; /* 80px circle */
+	background-size: cover;
+	aspect-ratio: 4 / 5;
+	height: 200px;
+}
+
+.first {
+	grid-area: first;
+}
+
+.second {
+	grid-area: second;
+}
+
+.third {
+	grid-area: third;
+}
+
+.fourth {
+	grid-area: fourth;
+}
+
+.fifth {
+	grid-area: fifth;
+}
+
+/* Selector */
+
+.selector-container {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+}
+
+#selector {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	gap: 10px;
+	margin: 15px;
+
+	& > .char {
+		height: 160px;
+
+		&[data-idx] {
+			background-color: #a7f3d0;
+
+			&::before {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				content: attr(data-idx);
+				color: white;
+				font-weight: 900;
+				font-size: 64px;
+				font-family: "Courier New", Courier, monospace;
+				text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+			}
+		}
+	}
+}
+
+/* Modal */
+
+.result-container {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	z-index: 2;
+	transition: opacity 300ms;
+	pointer-events: none;
+
+	&.open {
+		opacity: 1;
+		pointer-events: all;
+	}
+}
+
+#result > canvas {
+	border-radius: 15px;
+	width: auto;
+	height: 90dvh;
+}
+
+.button-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+
+	& > button {
+		border-radius: 15px;
+	}
+}
+
+/* Hide at 820px */
+
+@media (width <= 820px) {
+	.chars-container {
+		display: none;
+	}
+}

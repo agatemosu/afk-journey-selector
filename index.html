@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>AFK Journey selector</title>
+		<link rel="stylesheet" href="./styles.css" />
+		<script type="module" src="./create-canvas.js"></script>
+		<script type="module" src="./select-characters.js"></script>
+	</head>
+	<body>
+		<div id="blackout" data-visibility="hidden"></div>
+		<main>
+			<section class="chars-container">
+				<div id="chars">
+					<div class="char first"></div>
+					<div class="char second"></div>
+					<div class="char third"></div>
+					<div class="char fourth"></div>
+					<div class="char fifth"></div>
+				</div>
+			</section>
+			<section class="selector-container">
+				<a
+					class="source"
+					href="https://github.com/agatemosu/afk-journey-selector"
+					target="_blank"
+					rel="noopener"
+				>
+					Repository
+				</a>
+				<button type="button" id="create">Create image</button>
+				<div id="selector"></div>
+			</section>
+		</main>
+		<div class="result-container">
+			<div id="result"></div>
+			<div class="button-container">
+				<button type="button" id="download">Download image</button>
+			</div>
+		</div>
+	</body>
+</html>

@@ -19,6 +19,9 @@ for (let i = 0; i < chars.length; i++) {
 	charEl.classList.add("char", "select");
 	charEl.style.backgroundImage = `url("./chars/${chars[i]}.png")`;
 
+	const idxEl = document.createElement("span");
+	charEl.appendChild(idxEl);
+
 	selectorDiv.appendChild(charEl);
 	charEl.addEventListener("click", selectChar);
 }
@@ -35,6 +38,7 @@ function selectChar({ target }) {
 
 		const availableIdx = charsSet.findIndex((el) => el === null);
 		target.dataset.idx = availableIdx;
+		target.firstChild.textContent = availableIdx + 1;
 
 		charsSet[availableIdx] = availableIdx;
 		const targetEl = charsDiv.querySelector(`[data-idx="${availableIdx}"]`);
@@ -60,6 +64,7 @@ function removeChar({ target }) {
 
 function removeSelection(target, idx) {
 	target.removeAttribute("data-idx");
+	target.firstChild.textContent = "";
 	charsSet[idx] = null;
 
 	const targetEl = charsDiv.querySelector(`[data-idx="${idx}"]`);

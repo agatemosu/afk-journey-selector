@@ -49,7 +49,6 @@ button {
 
 #chars {
 	display: grid;
-	background-color: black;
 	position: fixed;
 	top: 0;
 	grid-template-areas:
@@ -58,6 +57,7 @@ button {
 		"third fourth"
 		"fifth fourth";
 	place-items: center;
+	background-color: black;
 	padding: 20px 10px;
 	aspect-ratio: 9 / 20;
 	height: 100vh;
@@ -114,19 +114,19 @@ button {
 
 		&[data-idx] {
 			background-color: #a7f3d0;
+		}
 
-			&::before {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				content: attr(data-idx);
-				color: white;
-				font-weight: 900;
-				font-size: 64px;
-				font-family: "Courier New", Courier, monospace;
-				text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-			}
+		& > span {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			pointer-events: none;
+			color: white;
+			font-weight: 900;
+			font-size: 64px;
+			font-family: "Courier New", Courier, monospace;
+			text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 		}
 	}
 }

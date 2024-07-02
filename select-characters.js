@@ -1,4 +1,4 @@
-import chars from "./characters.js";
+import chars, { Rarity } from "./characters.js";
 
 const charsDiv = document.querySelector("#chars");
 const selectorDiv = document.querySelector("#selector");
@@ -17,7 +17,7 @@ for (let i = 0; i < chars.length; i++) {
 	const charEl = document.createElement("div");
 
 	charEl.classList.add("char", "select");
-	charEl.style.backgroundImage = `url("./chars/${chars[i]}.png")`;
+	charEl.style.backgroundImage = `url("./chars/${chars[i].name}.png")`;
 
 	const idxEl = document.createElement("span");
 	charEl.appendChild(idxEl);
@@ -27,14 +27,16 @@ for (let i = 0; i < chars.length; i++) {
 }
 
 function selectChar({ target }) {
-	const imageStyle = target.style.backgroundImage;
 	const idx = target.dataset.idx;
-	const test = charsSet.find((el) => el === null);
 
 	if (idx === undefined) {
+		const test = charsSet.find((el) => el === null);
+
 		if (test === undefined) {
 			return;
 		}
+
+		const imageStyle = target.style.backgroundImage;
 
 		const availableIdx = charsSet.findIndex((el) => el === null);
 		target.dataset.idx = availableIdx;

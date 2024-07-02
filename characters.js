@@ -1,52 +1,59 @@
+export const Rarity = {
+	None: -1,
+	S: 0,
+	A: 1,
+	R: 2,
+};
+
 export default [
-	"alsa", // 264x330
-	"antandra", // 400x500
-	"arden", // 300x375
-	"atalanta", // 264x330
-	"berial", // 264x330
-	"brutus", // 264x330
-	"bryon", // 380x475
-	"carolina", // 400x500
-	"cassadee", // 264x330
-	"cecia", // 520x650
-	"chippy", // 400x500
-	"damian", // 320x400
-	"dionel", // 240x300
-	"eironn", // 240x300
-	"fay", // 264x330
-	"florabelle", // 340x450
-	"granny_dahnie", // 264x330
-	"hammie", // 320x400
-	"hewynn", //340x450
-	"hogan", // 264x330
-	"igor", // 400x500
-	"koko", // 240x300
-	"korin", // 240x300
-	"kruger", // 400x500
-	"lucius", // 240x300
-	"lumont", // 400x500
-	"lyca", // 400x500
-	"marilee", // 240x300
-	"mirael", // 240x300
-	"niru", // 240x300
-	"odie", // 400x500
-	"parisa", // 264x330
-	"phraesto", // 240x300
-	"reinier", // 240x300
-	"rhys", // 240x300
-	"rowan", // 400x500
-	"salazer", // 240x300
-	"satrana", // 280x350
-	"scarlita", // 320x400
-	"seth", // 264x330
-	"shakir", // 280x350
-	"silvina", // 280x350
-	"smokey_and_meerky", // 400x500
-	"soren", // 240x300
-	"temesia", // 240x300
-	"thoran", // 400x500
-	"vala", // 240x300
-	"valen", // 264x330
-	"viperian", // 240x300
-	"walker", // 264x330
+	{ name: "alsa", rarity: Rarity.S }, // 264x330
+	{ name: "antandra", rarity: Rarity.A }, // 400x500
+	{ name: "arden", rarity: Rarity.A }, // 300x375
+	{ name: "atalanta", rarity: Rarity.S }, // 264x330
+	{ name: "berial", rarity: Rarity.S }, // 264x330
+	{ name: "brutus", rarity: Rarity.S }, // 264x330
+	{ name: "bryon", rarity: Rarity.S }, // 380x475
+	{ name: "carolina", rarity: Rarity.S }, // 400x500
+	{ name: "cassadee", rarity: Rarity.S }, // 264x330
+	{ name: "cecia", rarity: Rarity.S }, // 520x650
+	{ name: "chippy", rarity: Rarity.R }, // 400x500
+	{ name: "damian", rarity: Rarity.A }, // 320x400
+	{ name: "dionel", rarity: Rarity.S }, // 240x300
+	{ name: "eironn", rarity: Rarity.S }, // 240x300
+	{ name: "fay", rarity: Rarity.A }, // 264x330
+	{ name: "florabelle", rarity: Rarity.S }, // 340x450
+	{ name: "granny_dahnie", rarity: Rarity.S }, // 264x330
+	{ name: "hammie", rarity: Rarity.R }, // 320x400
+	{ name: "hewynn", rarity: Rarity.S }, // 40x450
+	{ name: "hogan", rarity: Rarity.None }, // 264x330
+	{ name: "igor", rarity: Rarity.S }, // 400x500
+	{ name: "koko", rarity: Rarity.A }, // 240x300
+	{ name: "korin", rarity: Rarity.A }, // 240x300
+	{ name: "kruger", rarity: Rarity.A }, // 400x500
+	{ name: "lucius", rarity: Rarity.A }, // 240x300
+	{ name: "lumont", rarity: Rarity.S }, // 400x500
+	{ name: "lyca", rarity: Rarity.A }, // 400x500
+	{ name: "marilee", rarity: Rarity.A }, // 240x300
+	{ name: "mirael", rarity: Rarity.A }, // 240x300
+	{ name: "niru", rarity: Rarity.A }, // 240x300
+	{ name: "odie", rarity: Rarity.A }, // 400x500
+	{ name: "parisa", rarity: Rarity.A }, // 264x330
+	{ name: "phraesto", rarity: Rarity.S }, // 240x300
+	{ name: "reinier", rarity: Rarity.S }, // 240x300
+	{ name: "rhys", rarity: Rarity.S }, // 240x300
+	{ name: "rowan", rarity: Rarity.S }, // 400x500
+	{ name: "salazer", rarity: Rarity.A }, // 240x300
+	{ name: "satrana", rarity: Rarity.A }, // 280x350
+	{ name: "scarlita", rarity: Rarity.S }, // 320x400
+	{ name: "seth", rarity: Rarity.A }, // 264x330
+	{ name: "shakir", rarity: Rarity.S }, // 280x350
+	{ name: "silvina", rarity: Rarity.A }, // 280x350
+	{ name: "smokey_and_meerky", rarity: Rarity.S }, // 400x500
+	{ name: "soren", rarity: Rarity.A }, // 240x300
+	{ name: "temesia", rarity: Rarity.S }, // 240x300
+	{ name: "thoran", rarity: Rarity.S }, // 400x500
+	{ name: "vala", rarity: Rarity.S }, // 240x300
+	{ name: "valen", rarity: Rarity.A }, // 264x330
+	{ name: "viperian", rarity: Rarity.A }, // 240x300
+	{ name: "walker", rarity: Rarity.A }, // 264x330
 ];

@@ -68,13 +68,18 @@ button {
 }
 
 .char {
-	position: relative;
 	cursor: pointer;
 	border: 3px solid #cbd5e1;
 	border-radius: var(--radius) var(--radius) 0 0;
-	background-size: cover;
 	aspect-ratio: 4 / 5;
 	height: 200px;
+	overflow: hidden;
+}
+
+.char-img {
+	background-size: cover;
+	height: 100%;
+	pointer-events: none;
 }
 
 .first {
@@ -113,8 +118,10 @@ button {
 	margin: 15px;
 
 	& > .char {
-		height: 160px;
+		position: relative;
 		transition: background-color 200ms;
+		background-size: cover;
+		height: 160px;
 
 		&[data-canvas-idx] {
 			background-color: #a7f3d0;

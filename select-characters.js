@@ -10,6 +10,10 @@ for (let i = 0; i < charsDivChildren.length; i++) {
 	charsDivChildren[i].dataset.canvasIdx = i;
 	charsSet[i] = null;
 
+	const imgEl = document.createElement("div");
+	imgEl.classList.add("char-img");
+
+	charsDivChildren[i].appendChild(imgEl);
 	charsDivChildren[i].addEventListener("click", removeChar);
 }
 
@@ -61,8 +65,8 @@ function selectChar({ target }) {
 			`[data-canvas-idx="${availableIdx}"]`,
 		);
 
-		targetEl.style.backgroundColor = getRarityColor(chars[charIdx].rarity);
-		targetEl.style.backgroundImage = `url("./chars/${chars[charIdx].name}.png")`;
+		targetEl.style.backgroundImage = `linear-gradient(180deg, ${getRarityColor(chars[charIdx].rarity)}, #20252b)`;
+		targetEl.firstChild.style.backgroundImage = `url("./chars/${chars[charIdx].name}.png")`;
 
 		return;
 	}
@@ -89,4 +93,5 @@ function removeSelection(target, idx) {
 
 	const targetEl = charsDiv.querySelector(`[data-canvas-idx="${idx}"]`);
 	targetEl.style = null;
+	targetEl.firstChild.style.backgroundImage = null;
 }

@@ -3,18 +3,22 @@ import chars, { Rarity } from "./characters.js";
 const charsDiv = document.querySelector("#chars");
 const selectorDiv = document.querySelector("#selector");
 
-const charsDivChildren = charsDiv.querySelectorAll("*");
+const charsClasses = ["first", "second", "third", "fourth", "fifth"];
 const charsSet = [];
 
-for (let i = 0; i < charsDivChildren.length; i++) {
-	charsDivChildren[i].dataset.canvasIdx = i;
+for (let i = 0; i < charsClasses.length; i++) {
 	charsSet[i] = null;
+
+	const charEl = document.createElement("div");
+	charEl.dataset.canvasIdx = i;
+	charEl.classList.add("char", charsClasses[i]);
 
 	const imgEl = document.createElement("div");
 	imgEl.classList.add("char-img");
 
-	charsDivChildren[i].appendChild(imgEl);
-	charsDivChildren[i].addEventListener("click", removeChar);
+	charEl.appendChild(imgEl);
+	charEl.addEventListener("click", removeChar);
+	charsDiv.appendChild(charEl);
 }
 
 for (let i = 0; i < chars.length; i++) {

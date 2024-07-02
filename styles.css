@@ -30,11 +30,11 @@ button {
 	width: 100%;
 	height: 100%;
 	pointer-events: none;
+}
 
-	&[data-visibility="visible"] {
-		opacity: 0.5;
-		pointer-events: all;
-	}
+#blackout[data-visibility="visible"] {
+	opacity: 0.5;
+	pointer-events: all;
 }
 
 .source {
@@ -116,30 +116,30 @@ button {
 	align-content: flex-start;
 	gap: 10px;
 	margin: 15px;
+}
 
-	& > .char {
-		position: relative;
-		transition: background-color 200ms;
-		background-size: cover;
-		height: 160px;
+#selector .char {
+	position: relative;
+	transition: background-color 200ms;
+	background-size: cover;
+	height: 160px;
+}
 
-		&[data-canvas-idx] {
-			background-color: #a7f3d0;
-		}
+#selector .char[data-canvas-idx] {
+	background-color: #a7f3d0;
+}
 
-		& > span {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			pointer-events: none;
-			color: white;
-			font-weight: 900;
-			font-size: 64px;
-			font-family: "Courier New", Courier, monospace;
-			text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-		}
-	}
+#selector .char span {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+	color: white;
+	font-weight: 900;
+	font-size: 64px;
+	font-family: "Courier New", Courier, monospace;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 /* Modal */
@@ -153,14 +153,14 @@ button {
 	z-index: 2;
 	transition: opacity 300ms;
 	pointer-events: none;
-
-	&.open {
-		opacity: 1;
-		pointer-events: all;
-	}
 }
 
-#result > canvas {
+.result-container.open {
+	opacity: 1;
+	pointer-events: all;
+}
+
+#result canvas {
 	border-radius: 15px;
 	width: auto;
 	height: 90dvh;
@@ -170,10 +170,10 @@ button {
 	display: flex;
 	justify-content: center;
 	margin-top: 10px;
+}
 
-	& > button {
-		border-radius: 15px;
-	}
+.button-container button {
+	border-radius: 15px;
 }
 
 /* Hide at 820px */

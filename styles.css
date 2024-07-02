@@ -112,7 +112,7 @@ button {
 		height: 160px;
 		transition: background-color 200ms;
 
-		&[data-idx] {
+		&[data-canvas-idx] {
 			background-color: #a7f3d0;
 		}
 

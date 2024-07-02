@@ -7,7 +7,7 @@ const charsDivChildren = charsDiv.querySelectorAll("*");
 const charsSet = [];
 
 for (let i = 0; i < charsDivChildren.length; i++) {
-	charsDivChildren[i].dataset.idx = i;
+	charsDivChildren[i].dataset.canvasIdx = i;
 	charsSet[i] = null;
 
 	charsDivChildren[i].addEventListener("click", removeChar);
@@ -16,6 +16,7 @@ for (let i = 0; i < charsDivChildren.length; i++) {
 for (let i = 0; i < chars.length; i++) {
 	const charEl = document.createElement("div");
 
+	charEl.dataset.charIdx = i;
 	charEl.classList.add("char", "select");
 	charEl.style.backgroundImage = `url("./chars/${chars[i].name}.png")`;
 
@@ -26,49 +27,66 @@ for (let i = 0; i < chars.length; i++) {
 	charEl.addEventListener("click", selectChar);
 }
 
-function selectChar({ target }) {
-	const idx = target.dataset.idx;
+function getRarityColor(rarity) {
+	switch (rarity) {
+		case Rarity.S:
+			return "#d98c47";
 
-	if (idx === undefined) {
+		case Rarity.A:
+			return "#81578f";
+
+		default:
+			return "#5c6786";
+	}
+}
+
+function selectChar({ target }) {
+	const canvasIdx = target.dataset.canvasIdx;
+
+	if (canvasIdx === undefined) {
 		const test = charsSet.find((el) => el === null);
 
 		if (test === undefined) {
 			return;
 		}
 
-		const imageStyle = target.style.backgroundImage;
-
+		const charIdx = target.dataset.charIdx;
 		const availableIdx = charsSet.findIndex((el) => el === null);
-		target.dataset.idx = availableIdx;
-		target.firstChild.textContent = availableIdx + 1;
 
 		charsSet[availableIdx] = availableIdx;
-		const targetEl = charsDiv.querySelector(`[data-idx="${availableIdx}"]`);
+		target.dataset.canvasIdx = availableIdx;
+		target.firstChild.textContent = availableIdx + 1;
 
-		targetEl.style.backgroundImage = imageStyle;
+		const targetEl = charsDiv.querySelector(
+			`[data-canvas-idx="${availableIdx}"]`,
+		);
+
+		targetEl.style.backgroundColor = getRarityColor(chars[charIdx].rarity);
+		targetEl.style.backgroundImage = `url("./chars/${chars[charIdx].name}.png")`;
+
 		return;
 	}
 
-	removeSelection(target, idx);
+	removeSelection(target, canvasIdx);
 }
 
 function removeChar({ target }) {
-	const idx = target.dataset.idx;
-	const test = charsSet[idx];
+	const idx = target.dataset.canvasIdx;
 
-	if (test === null) {
+	if (charsSet[idx] === null) {
 		return;
 	}
 
-	const targetEl = selectorDiv.querySelector(`[data-idx="${idx}"]`);
+	const targetEl = selectorDiv.querySelector(`[data-canvas-idx="${idx}"]`);
 	removeSelection(targetEl, idx);
 }
 
 function removeSelection(target, idx) {
-	target.removeAttribute("data-idx");
-	target.firstChild.textContent = "";
+	target.removeAttribute("data-canvas-idx");
+	target.firstChild.textContent = null;
+
 	charsSet[idx] = null;
 
-	const targetEl = charsDiv.querySelector(`[data-idx="${idx}"]`);
-	targetEl.style.backgroundImage = null;
+	const targetEl = charsDiv.querySelector(`[data-canvas-idx="${idx}"]`);
+	targetEl.style = null;
 }
